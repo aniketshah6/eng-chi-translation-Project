@@ -20,3 +20,24 @@ To try to lighten the training load, I tried replacing the embedding layer with 
 
 # The transformer model
 
+Finally, I tried adapting the model from https://github.com/keras-team/keras-io/blob/master/examples/nlp/neural_machine_translation_with_transformer.py. With this it was possible to train for 50 epochs on the full 10,000 paired sentences in ~4 hours. Unfortunately, the model still ended up over training, bu it was possible to see that the model learned many features of the language, e.g. producing the following translations:
+
+"where is it?" -> "— — 現 在 哪 兒 ？" lit. "--where now?"
+
+"who is he?" -> "他 是 誰" lit. "who is he?"
+
+"where are you?" -> "你 去 什 麼 地 方 了 ？" lit. "which place did you go?"
+
+"sit down" -> "坐 下 吧" lit. "sit down"
+
+Unfortunately for more complicated sentences it produced many strange results, such as the following more nonsensical "translations":
+
+"we went for a walk" -> "我 們 走 進 去 和 她 去 。"
+
+"is that a dog?" -> "狗 做 完 全 大 海 豚 了 ？"
+
+-------------------------
+
+# Future directions
+
+There are several natural things one could do to improve the model performance. The metrics show that on a test set accuracy and loss start to stagnate pretty quickly, which indicate overtraining. Besides finding a larger data set, one strategy to explore would be implementing callbacks that modify the learning rate over time. 
