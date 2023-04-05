@@ -30,7 +30,7 @@ Finally, I tried adapting the model from https://github.com/keras-team/keras-io/
 
 "sit down" -> "坐 下 吧" lit. "sit down"
 
-Unfortunately for more complicated sentences it produced many strange results, such as the following more nonsensical "translations":
+Unfortunately for even slightly more complicated sentences it produced many strange results, such as the following more nonsensical "translations":
 
 "we went for a walk" -> "我 們 走 進 去 和 她 去 。"
 
@@ -40,4 +40,4 @@ Unfortunately for more complicated sentences it produced many strange results, s
 
 # Future directions
 
-There are several natural things one could do to improve the model performance. The metrics show that on a test set accuracy and loss start to stagnate pretty quickly, which indicate overtraining. Besides finding a larger data set, one strategy to explore would be implementing callbacks that modify the learning rate over time. 
+There are several natural things one could do to improve the model performance. The metrics show that on a test set accuracy and loss start to stagnate pretty quickly, which indicate overtraining. This is to be expected, since the training set is quite small. To build a functional translator would require much more data. Besides finding a larger data set, one strategy to explore would be implementing callbacks that modify the learning rate over time. 
